@@ -1,0 +1,80 @@
+// Aufgabe 2.2 
+
+Include Guards:
+Alle Header besitzen ein mit #define gesetztes Symbol. 
+Die include guards im Header einer .hpp Datei (Klassen/Methodendefinition) sollen Mehrfacheinbindungen verhindert werden.
+ifdndef (Präprozessor-Makro) verhindert diese Mehrfacheinbindung, indem durch das erste Einbinden der Header-Datei 
+die nachfolgenden Definitionen des Headers übersprungen werden. 
+
+In der .cpp Datei (Implementierung der Methoden) wird darauf verwiesen, in welcher .hpp Datei die Methoden und Variablen definiert sind. 
+Reihenfolge hierbei ist: zugehörige .hpp, Fremdbibliotheken, C++ Bibliotheken: 
+#include "sphere.hpp"  //zugehoerige .hpp Datei 
+#include <boost/optional.hpp> //Include Fremdbibliotheken
+#include <utility> //System Include 
+#include <vector> //System Include 
+
+
+Klasse: 
+In einer Klasse werden Elemente (Members) zusammengefasst (Daten und Funktionen). 
+Alle für ein Objekt notwendigen Initialisierungen finden im Konstruktor statt. 
+RAII (resource acquisition is initialization). Für DTO (Datentransferobjekte) nutzen wir ein struct. 
+Ein Objekt einer Klasse hat ein Verhalten (Aktionen, die die Instanz durch das Empfangen von Botschaften durchfuehrt) und einen Zustand (Daten, die in einem Objekt gespeichert sind um sein Verhalten zu generieren.)
+Die Sichtbarkeit unterscheidet sich in public (Eintraege koennen von jedem gesehen und bearbeitet werden. Schnittstelle Klasse und Instanz der Klasse) und private (koennen nur von innerhalb der Klasse geaendert werden). 
+Methoden im public Bereich und Variablen im private-Bereich. 
+
+
+class X; 
+class Y {
+    public: 
+      Y(X const&); //Deklaration des Konstruktors
+    private: 
+      X*x;
+};
+
+class X { //Definition der Klasse X
+    public: 
+    X();
+};
+
+Y::Y (X const&) {
+
+}
+
+Methoden: 
+Haben einen Namen (muss mit der Botschaft der Methode harmonieren) einen Vertrag (Signatur) (Rueckgabetyp, Parameter) und der Rumpf (Programmcode, es kann auf die Instanzvariablen zugegriffen werden).
+Scope-Operator (Circle::) muss vor dem Namen der Methode auftauchen
+
+Konstruktor: 
+//circle.hpp
+class Circle {
+    public:
+    Circle (Point2D const& ctr, float r, ColorRGB const& clr);
+};
+
+//circle.cpp
+Circle::Circle (Point2D const& ctr, float r, ColorRGB const& clr):
+center_{ctr},
+radius_{r},
+color_{clr},
+
+Der Konstruktor ist eine Methode die zur Initialisierung eines neu erzeugten Objektes dient. 
+Sie wird implizit aufgerufen wenn das Objekt erzeugt wird.
+Initialisiert alle Membervariablen durch den Aufruf der Konstruktoren. 
+Überladene Konstruktoren bedeutet, dass es mehrere Konstruktoren mit dem gleichen Namen und einer anderen Signatur gibt. 
+Zum Beispiel den Default constructor (vom System erzeugt wenn kein Konstruktor definiert ist), copy constructor (Membervariablen werden aus den Membervariablen des übergebenen Objekts konstruiert) oder user-defined constructors. 
+
+Destruktor: 
+Hat den selben Namen wie die Klasse und wird mit ~ eingeleitet.
+Der Destruktor ist eine Mehtode, die automatisch aufgerufen wird, wenn die Lebenszeit eines Objekts endet.
+Nur nötig falls gewisse Aufräumarbeiten passieren müssen bevor das Objekt aufhört zu existieren. 
+(Objekt öffnet Datei, Datei muss geschlossen werden bevor Objekt nicht mehr existiert)
+
+
+Datentransferobjekte: 
+sind öffentlich und haben keine Memberfunktionen oder Dienste. 
+Hier wird das C++-Konstrukt struct verwendet. 
+Das kann auch Konstruktoren haben aber in der Regel gibt es keine explizit vereinbarten Konstruktoren und auch keine Methoden. 
+Default Member Initialisierung sollte genutzt werden. 
+struct Pixel {
+    int x=0; int y=0; 
+}
