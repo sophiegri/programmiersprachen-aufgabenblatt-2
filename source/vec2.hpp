@@ -1,6 +1,10 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
 
+// Die include guards im Header einer .hpp Datei (Klassen/Methodendefinition) sollen Mehrfacheinbindungen verhindert werden.
+// ifdndef (Präprozessor-Makro) verhindert diese Mehrfacheinbindung, indem durch das erste Einbinden der Header-Datei 
+// die nachfolgenden Definitionen des Headers übersprungen werden. 
+
 
 struct Vec2
 {
@@ -12,10 +16,14 @@ struct Vec2
  float x;
  float y; 
 
+  Vec2& operator += (Vec2 const& v);
+  Vec2& operator -= (Vec2 const& v);
+  Vec2& operator *= (float s);
+  Vec2& operator /= (float s);
+
 };
 
 #endif
 
-//Hier wurde nur deklariert und noch nichts definiert  
 //Es ist nicht notwendig einen Destruktor anzulegen, da das Objekt nicht auf eine Datei oder aehnliches zugreift
 
