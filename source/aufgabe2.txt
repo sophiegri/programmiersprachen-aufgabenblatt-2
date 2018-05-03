@@ -78,3 +78,7 @@ Default Member Initialisierung sollte genutzt werden.
 struct Pixel {
     int x=0; int y=0; 
 }
+
+freie Funktionen: 
+Sind nicht in einer Klasse/struct haben aber dennoch eine Klassenzugehörigkeit und werden in der Headerfile der Klasse deklariert
+und im cpp-File implementiert.
