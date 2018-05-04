@@ -82,3 +82,5 @@ struct Pixel {
 freie Funktionen: 
 Sind nicht in einer Klasse/struct haben aber dennoch eine Klassenzugehörigkeit und werden in der Headerfile der Klasse deklariert
 und im cpp-File implementiert.
+
+Determinantenberechnung: 
