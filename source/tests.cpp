@@ -2,7 +2,9 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 #include <cmath>
+
 
 //Aufgabe 2.2
 
@@ -306,6 +308,23 @@ TEST_CASE ("Roationsmatrix" , "[rotation]")
   REQUIRE (rotation_m1.b == Approx (-0.0f).epsilon (0.01));
   REQUIRE (rotation_m1.c == Approx (0.0f).epsilon (0.01));
 } 
+
+//Aufgabe 2.7
+
+TEST_CASE ("Farbintensitaet" , "[color]")
+{
+  Color black {0.0};
+  Color red {1.0,0.0,0.0};
+  REQUIRE (black.r == 0.0f);
+  REQUIRE (black.g == 0.0f);
+  REQUIRE (black.b == 0.0f);
+  REQUIRE (red.r == 1.0f);
+  REQUIRE (red.g == 0.0f);
+  REQUIRE (red.b == 0.0f);
+}
+
+
+
 
 
 int main(int argc, char *argv[])

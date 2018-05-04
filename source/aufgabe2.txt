@@ -14,31 +14,6 @@ Reihenfolge hierbei ist: zugehörige .hpp, Fremdbibliotheken, C++ Bibliotheken:
 #include <vector> //System Include 
 
 
-Klasse: 
-In einer Klasse werden Elemente (Members) zusammengefasst (Daten und Funktionen). 
-Alle für ein Objekt notwendigen Initialisierungen finden im Konstruktor statt. 
-RAII (resource acquisition is initialization). Für DTO (Datentransferobjekte) nutzen wir ein struct. 
-Ein Objekt einer Klasse hat ein Verhalten (Aktionen, die die Instanz durch das Empfangen von Botschaften durchfuehrt) und einen Zustand (Daten, die in einem Objekt gespeichert sind um sein Verhalten zu generieren.)
-Die Sichtbarkeit unterscheidet sich in public (Eintraege koennen von jedem gesehen und bearbeitet werden. Schnittstelle Klasse und Instanz der Klasse) und private (koennen nur von innerhalb der Klasse geaendert werden). 
-Methoden im public Bereich und Variablen im private-Bereich. 
-
-
-class X; 
-class Y {
-    public: 
-      Y(X const&); //Deklaration des Konstruktors
-    private: 
-      X*x;
-};
-
-class X { //Definition der Klasse X
-    public: 
-    X();
-};
-
-Y::Y (X const&) {
-
-}
 
 Methoden: 
 Haben einen Namen (muss mit der Botschaft der Methode harmonieren) einen Vertrag (Signatur) (Rueckgabetyp, Parameter) und der Rumpf (Programmcode, es kann auf die Instanzvariablen zugegriffen werden).
@@ -69,6 +44,40 @@ Der Destruktor ist eine Mehtode, die automatisch aufgerufen wird, wenn die Leben
 Nur nötig falls gewisse Aufräumarbeiten passieren müssen bevor das Objekt aufhört zu existieren. 
 (Objekt öffnet Datei, Datei muss geschlossen werden bevor Objekt nicht mehr existiert)
 
+freie Funktionen: 
+Sind nicht in einer Klasse/struct haben aber dennoch eine Klassenzugehörigkeit und werden in der Headerfile der Klasse deklariert
+und im cpp-File implementiert.
+
+//Aufgabe 2.7 
+ 
+Klasse: 
+In einer Klasse werden Elemente (Members) zusammengefasst (Daten und Funktionen). 
+Alle für ein Objekt notwendigen Initialisierungen finden im Konstruktor statt. 
+RAII (resource acquisition is initialization). Für DTO (Datentransferobjekte) nutzen wir ein struct. 
+Ein Objekt einer Klasse hat ein Verhalten (Aktionen, die die Instanz durch das Empfangen von Botschaften durchfuehrt) und einen Zustand (Daten, die in einem Objekt gespeichert sind um sein Verhalten zu generieren.)
+Die Sichtbarkeit unterscheidet sich in public (Eintraege koennen von jedem gesehen und bearbeitet werden. Schnittstelle Klasse und Instanz der Klasse) und private (koennen nur von innerhalb der Klasse geaendert werden). 
+Methoden im public Bereich und Variablen im private-Bereich. 
+
+
+class X; 
+class Y {
+    public: 
+      Y(X const&); //Deklaration des Konstruktors
+    private: 
+      X*x;
+};
+
+class X { //Definition der Klasse X
+    public: 
+    X();
+};
+
+Y::Y (X const&) {
+
+}
+
+Struct: 
+Unterschied: 
 
 Datentransferobjekte: 
 sind öffentlich und haben keine Memberfunktionen oder Dienste. 
@@ -78,9 +87,3 @@ Default Member Initialisierung sollte genutzt werden.
 struct Pixel {
     int x=0; int y=0; 
 }
-
-freie Funktionen: 
-Sind nicht in einer Klasse/struct haben aber dennoch eine Klassenzugehörigkeit und werden in der Headerfile der Klasse deklariert
-und im cpp-File implementiert.
-
-Determinantenberechnung: 
