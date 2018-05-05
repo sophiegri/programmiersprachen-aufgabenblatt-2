@@ -87,3 +87,7 @@ Default Member Initialisierung sollte genutzt werden.
 struct Pixel {
     int x=0; int y=0; 
 }
+
+//Aufgabe 2.8 
+
+get-Methode: 

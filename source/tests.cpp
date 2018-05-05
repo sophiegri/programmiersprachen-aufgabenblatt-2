@@ -3,6 +3,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 #include <cmath>
 
 
@@ -323,7 +325,40 @@ TEST_CASE ("Farbintensitaet" , "[color]")
   REQUIRE (red.b == 0.0f);
 }
 
+//Aufgabe 2.8 
 
+TEST_CASE ("Circle" ,"[cir]")
+{
+  Circle circle1 {};
+  REQUIRE (circle1.get_radius() == 1.0);
+  REQUIRE (circle1.get_color ().r == 0);
+  REQUIRE (circle1.get_center ().x == 0);
+  
+  Vec2 vector1 {2.0,2.0};
+  Color color1 {0.0, 0.0, 1.0}; //warum geht es nur mit 1 oder 0? 
+  Circle circle2 {4.0f, vector1, color1};  
+  REQUIRE (circle2.get_radius() == 4.0f);
+  REQUIRE (circle2.get_color ().b == 1.0);
+  REQUIRE (circle2.get_center ().y == 2.0f);
+}
+
+TEST_CASE ("Rectangle", "[rec]")
+{ 
+  Rectangle rectangle1 {};
+  REQUIRE (rectangle1.get_width () == 1);
+  REQUIRE (rectangle1.get_height () == 1);
+  REQUIRE (rectangle1.get_area () == 1);
+  REQUIRE (rectangle1.get_color ().b == 0);
+
+  Vec2 max_height1 {4.0, 8.0};
+  Vec2 min_height1 {0.0,1.0};
+  Color color2 {1.0,0.0,1.0};
+  Rectangle rectangle2 {max_height1, min_height1, color2};
+  REQUIRE (rectangle2.get_width () == 4);
+  REQUIRE (rectangle2.get_height () == 7);
+  REQUIRE (rectangle2.get_area () == 28);
+  REQUIRE (rectangle2.get_color ().r == Approx (1.0f).epsilon(0.01));
+}
 
 
 
