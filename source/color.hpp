@@ -1,7 +1,7 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 #include <algorithm>
-using namespace std; 
+#include <iostream>
 
 struct Color
 {
@@ -10,23 +10,43 @@ struct Color
   float g; 
   float b; 
 
-  Color (float _r, float _g, float _b):
-    r{_r},
-    g{_g},
-    b{_b}
+  Color (float _r, float _g, float _b)
+  {
+
+   if (_r<=1.0f && _r>=0.0f && _g<=1.0f && _g>=0.0f && _b<=1.0f && _b>=0.0f) {
+
+    r = _r;
+    g = _g;
+    b = _b;
+
+   }
+
+   else {
+    std::cout <<"Falsche Eingabe fuer einen Farbwert.Waehle zwischen 0-1\n";
+    r = 0.0f;
+    g = 0.0f;
+    b = 0.0f;
+   }
+  };
+  
+
+  Color (float x){
+    if(x>=0.0f && x<=1.0f)
     {
-      r = max(r, 0.0f) || min(r, 1.0f);
-      g = max(g, 0.0f) || min(g, 1.0f);
-      b = max(b, 0.0f) || min(b, 1.0f);
+      r=x;
+      g=x;
+      b=x;     
     }
 
-  Color (float x):
-    r{x},
-    g{x},
-    b{x}
+    else 
     {
-      x = max(x, 1.0f) || min(x, 0.0f);
+      std::cout <<"Falsche Eingabe fuer einen Farbwert.Waehle zwischen 0-1\n";
+      r = 0.0f;
+      g = 0.0f;
+      b = 0.0f;
     } 
+  };
+
 };
 
 #endif 

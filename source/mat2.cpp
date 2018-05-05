@@ -93,7 +93,7 @@ Mat2 transpose (Mat2 const& m)
 
 Mat2 make_rotation_mat2 (float phi)
 {
- Mat2 m1 {cos(phi), -sin(phi), sin(phi), cos(phi)};
+ Mat2 m1 {cos(M_PI), -sin(M_PI), sin(M_PI), cos(M_PI)};
  return m1;
 }
 

@@ -7,6 +7,7 @@ add_executable(example
   mat2.cpp
   circle.cpp
   rectangle.cpp
+  color.hpp
   )
 target_link_libraries(example
   glfw
@@ -24,6 +25,8 @@ add_executable(tests
   mat2.cpp
   circle.cpp
   rectangle.cpp
+  window.cpp
+  color.hpp
   )
 target_link_libraries(tests
   glfw

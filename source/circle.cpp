@@ -1,10 +1,13 @@
 #include "circle.hpp"
 #include <iostream>
+#include <cmath>
+
+//Aufgabe 2.8 
 
 Circle::Circle ():
-  radius{1.0},
-  center{0.0,0.0},
-  color{0,0,0}
+  radius{1.0f},
+  center{0.0f,0.0f},
+  color{0.0f,0.0f,0.0f}
   {}
 
 Circle::Circle (float _radius, Vec2 const& _center, Color const& _color):
@@ -27,4 +30,24 @@ float Circle::get_radius() const
 Color Circle::get_color() const
 {
   return color;
+}
+
+//Aufgabe 2.9 
+
+float Circle::get_circumference () const
+{
+  float circumference = 2*(M_PI)*get_radius();
+  return circumference;
+}
+
+void Circle::draw (Window const& w) const
+{
+  for (int i=0; i<2000; i++) {
+
+      float x1{center.x + radius * std::sin(w.get_time()+i)};
+      float y1{center.y + radius * std::cos(w.get_time()+i)};
+      w.draw_point(x1, y1, color.r, color.g, color.b);
+
+}
+
 }

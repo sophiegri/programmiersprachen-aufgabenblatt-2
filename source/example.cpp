@@ -2,10 +2,21 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "circle.hpp"
+#include "rectangle.hpp"
+#include "color.hpp"
 
 
 int main(int argc, char* argv[])
-{
+{ 
+  Circle circle_1 {370.0f, Vec2(400.0f,400.0f), Color(0.2f,1.0f,0.8f)};
+  Circle circle_2 {250.0f, Vec2(480.0f,420.0f), Color(0.2f,0.3f,0.8f)};
+  Circle circle_3 {120.0f, Vec2(300.0f,180.0f), Color(0.2f,0.8f,1.0f)};
+
+  Rectangle rectangle_1 {Vec2 (215.0f, 450.0f), Vec2(120.0f, 550.0f), Color(0.2f, 0.7f, 1.0f)};
+  Rectangle rectangle_2 {Vec2 (780.0f, 15.0f), Vec2(15.0f,780.0f), Color(0.5f, 0.4f, 1.0f)};
+ 
+ 
   Window win{std::make_pair(800,800)};
 
   while (!win.should_close()) {
@@ -26,8 +37,13 @@ int main(int argc, char* argv[])
     float x3{400 + 380 * std::sin(t-10.f)};
     float y3{400 + 380 * std::cos(t-10.f)};
 
-    win.draw_point(x1, y1,
-        1.0f, 0.0f, 0.0f);
+    circle_1.draw(win);
+    circle_2.draw(win);
+    circle_3.draw(win);
+    rectangle_1.draw(win);
+    rectangle_2.draw(win);
+
+    win.draw_point(x1, y1, 1.0f, 0.0f, 0.0f);
     win.draw_point(x2, y2, 0.0f, 1.0f, 0.0f);
     win.draw_point(x3, y3, 0.0f, 0.0f, 1.0f);
 
@@ -48,6 +64,7 @@ int main(int argc, char* argv[])
     win.draw_text(10, 5, 35.0f, text);
 
     win.update();
+
   }
 
   return 0;

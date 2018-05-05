@@ -2,14 +2,14 @@
 #define CIRCLE_HPP
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 
 class Circle 
 {
     private: //Attribute sind immer privat
     float radius; 
-    Vec2 center; 
-    string name; 
+    Vec2 center;
     Color color; 
     
     public: //Methoden und Konstruktor sind öffentlich
@@ -19,7 +19,13 @@ class Circle
 
     Vec2 get_center() const;
     float get_radius() const; 
-    Color get_color() const;    
+    Color get_color() const;  
+    float get_circumference () const; 
+
+//Aufgabe 2.11
+
+    void draw (Window const& w) const;
+
 
 };
 

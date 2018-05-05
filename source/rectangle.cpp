@@ -1,6 +1,8 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cmath>
 
+//Aufgabe 2.8 
 
 Rectangle::Rectangle ():
   max_height{1.0,1.0},
@@ -35,4 +37,20 @@ float Rectangle::get_area() const
 Color Rectangle::get_color() const
 {
   return color;
+}
+
+//Aufgabe 2.9
+
+float Rectangle::get_circumference () const
+{
+    float circumference = 2*get_height () + 2*get_width ();
+    return circumference;
+}
+
+void Rectangle::draw (Window const& w) const 
+{
+    w.draw_line(min_height.x, min_height.y, max_height.x, min_height.y, color.r, color.g, color.b);
+    w.draw_line(max_height.x, min_height.y, max_height.x, max_height.y, color.r, color.g, color.b);
+    w.draw_line(max_height.x, max_height.y, min_height.x, max_height.y, color.r, color.g, color.b);
+    w.draw_line(min_height.x, max_height.y, min_height.x, min_height.y, color.r, color.g, color.b);
 }

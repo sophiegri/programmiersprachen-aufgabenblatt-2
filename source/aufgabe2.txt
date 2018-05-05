@@ -91,3 +91,5 @@ struct Pixel {
 //Aufgabe 2.8 
 
 get-Methode: 
+Wenn eine Klasse eine Membervariable hat ist es unsicher sie aufzurufen ohne sie zu überschreiben. Deswegen wird die Variable durch eine get-Methode aufgerufen und nur gelesen.
+
