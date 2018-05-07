@@ -26,6 +26,7 @@ class Circle
 
     void draw (Window const& w) const;
 
+    void draw (Window const& w, Color const& color) const; 
 
 };
 

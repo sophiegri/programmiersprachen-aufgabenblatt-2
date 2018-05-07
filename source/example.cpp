@@ -9,12 +9,16 @@
 
 int main(int argc, char* argv[])
 { 
-  Circle circle_1 {370.0f, Vec2(400.0f,400.0f), Color(0.2f,1.0f,0.8f)};
+  Circle circle_1 {370.0f, Vec2(400.0f,400.0f), Color (0.0f,1.0f,0.0f)};
   Circle circle_2 {250.0f, Vec2(480.0f,420.0f), Color(0.2f,0.3f,0.8f)};
   Circle circle_3 {120.0f, Vec2(300.0f,180.0f), Color(0.2f,0.8f,1.0f)};
 
   Rectangle rectangle_1 {Vec2 (215.0f, 450.0f), Vec2(120.0f, 550.0f), Color(0.2f, 0.7f, 1.0f)};
   Rectangle rectangle_2 {Vec2 (780.0f, 15.0f), Vec2(15.0f,780.0f), Color(0.5f, 0.4f, 1.0f)};
+  Rectangle rectangle_3; //Jetzt wird durch color const die Farbe auf weiß gesetzt 
+
+  Color color1 {0.2f,1.0f,0.8f}; //Es wird eine neue Farbe gesetzt 
+
  
  
   Window win{std::make_pair(800,800)};
@@ -43,6 +47,11 @@ int main(int argc, char* argv[])
     rectangle_1.draw(win);
     rectangle_2.draw(win);
 
+    circle_1.draw(win, color1); //die neue Farbe wird aufgerufen
+    circle_2.draw(win, {0.6f, 0.0f,0.8f}); //es wird direkt eine neue Farbe gesetzt 
+    rectangle_3.draw(win); //es wird die Methode ohne color aufgerufen, deswegen wird dieses Rechteck weiß gezeichnet
+    
+
     win.draw_point(x1, y1, 1.0f, 0.0f, 0.0f);
     win.draw_point(x2, y2, 0.0f, 1.0f, 0.0f);
     win.draw_point(x3, y3, 0.0f, 0.0f, 1.0f);
@@ -66,6 +75,7 @@ int main(int argc, char* argv[])
     win.update();
 
   }
+   //rectangle_1.draw (color);
 
   return 0;
 }

@@ -49,8 +49,16 @@ float Rectangle::get_circumference () const
 
 void Rectangle::draw (Window const& w) const 
 {
-    w.draw_line(min_height.x, min_height.y, max_height.x, min_height.y, color.r, color.g, color.b);
-    w.draw_line(max_height.x, min_height.y, max_height.x, max_height.y, color.r, color.g, color.b);
-    w.draw_line(max_height.x, max_height.y, min_height.x, max_height.y, color.r, color.g, color.b);
-    w.draw_line(min_height.x, max_height.y, min_height.x, min_height.y, color.r, color.g, color.b);
+    w.draw_line(min_height.x, min_height.y, max_height.x, min_height.y, 1.0f, 1.0f, 1.0f);
+    w.draw_line(max_height.x, min_height.y, max_height.x, max_height.y, 1.0f, 1.0f, 1.0f);
+    w.draw_line(max_height.x, max_height.y, min_height.x, max_height.y, 1.0f, 1.0f, 1.0f);
+    w.draw_line(min_height.x, max_height.y, min_height.x, min_height.y, 1.0f, 1.0f, 1.0f);
+}
+
+void Rectangle::draw (Window const& w, Color const& color) const 
+{
+  w.draw_line(min_height.x, min_height.y, max_height.x, min_height.y, color.r, color.g, color.b);
+  w.draw_line(max_height.x, min_height.y, max_height.x, max_height.y, color.r, color.g, color.b);
+  w.draw_line(max_height.x, max_height.y, min_height.x, max_height.y, color.r, color.g, color.b);
+  w.draw_line(min_height.x, max_height.y, min_height.x, min_height.y, color.r, color.g, color.b);
 }

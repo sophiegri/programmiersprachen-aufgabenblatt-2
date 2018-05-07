@@ -32,7 +32,7 @@ center_{ctr},
 radius_{r},
 color_{clr},
 
-Der Konstruktor ist eine Methode die zur Initialisierung eines neu erzeugten Objektes dient. 
+Der Konstruktor ist eine Operation die zur Initialisierung eines neu erzeugten Objektes dient. 
 Sie wird implizit aufgerufen wenn das Objekt erzeugt wird.
 Initialisiert alle Membervariablen durch den Aufruf der Konstruktoren. 
 Überladene Konstruktoren bedeutet, dass es mehrere Konstruktoren mit dem gleichen Namen und einer anderen Signatur gibt. 
@@ -76,8 +76,8 @@ Y::Y (X const&) {
 
 }
 
-Struct: 
-Unterschied: 
+Struct: Auch Struktur genannt, ist eine Klasse, deren Member ausschließlcih public sind. 
+Unterschied: Der Unterschied von einem struct und einer class ist die Unterscheidung zwischen Sichtbarkeit (KLasse aus Sicht des Nutzers) und Implementierung (zb. Struct aus Sicht des Autors).
 
 Datentransferobjekte: 
 sind öffentlich und haben keine Memberfunktionen oder Dienste. 
@@ -89,7 +89,16 @@ struct Pixel {
 }
 
 //Aufgabe 2.8 
-
 get-Methode: 
 Wenn eine Klasse eine Membervariable hat ist es unsicher sie aufzurufen ohne sie zu überschreiben. Deswegen wird die Variable durch eine get-Methode aufgerufen und nur gelesen.
 
+//Aufgabe 2.9
+Die Methode circumference der Klassen rectangle und circle sollte const sein, da sie Werte einliest und somit der gespeicherte Wert geändert wird. 
+Der Funktion wird keine Initialisierung verschiedener Werte übergeben. 
+Eine Funktion ist eine logische Berechnungseinheit, die aus verschiedenen Teilen des Programms aufgerufen werden kann. 
+Eine Methode ist eine Memberfunktion (gehört zu einer Klasse) und definiert die Operationen, die auf Objekte ihrer Klasse ausgeführt werden können. 
+Der Unterschied ist also die Zugehörigkeit zu einer Klasse. Die Funktion ist frei und hat diese Zugehörigkeit nicht. 
+
+//Aufgabe 2.12 
+
+Überladen bedeutet, dass zwei Funktionen oder Operationen des gleichen Namens mit unterschiedlichen Argumenten und Typen definiert werden. 

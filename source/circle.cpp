@@ -49,5 +49,15 @@ void Circle::draw (Window const& w) const
       w.draw_point(x1, y1, color.r, color.g, color.b);
 
 }
+}
+
+void Circle::draw (Window const& w, Color const& color) const 
+{ 
+  for (int i=0; i<2000; i++) {
+
+    float x1{center.x + radius * std::sin(w.get_time()+i)};
+    float y1{center.y + radius * std::cos(w.get_time()+i)};
+    w.draw_point(x1, y1, color.r, color.g, color.b);
+}
 
 }
