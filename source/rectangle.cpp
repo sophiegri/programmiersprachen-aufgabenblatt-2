@@ -62,3 +62,15 @@ void Rectangle::draw (Window const& w, Color const& color) const
   w.draw_line(max_height.x, max_height.y, min_height.x, max_height.y, color.r, color.g, color.b);
   w.draw_line(min_height.x, max_height.y, min_height.x, min_height.y, color.r, color.g, color.b);
 }
+
+bool Rectangle::is_inside (Vec2 const& point) const
+{
+  if ((point.x <= max_height.x && point.x >= min_height.x) && (point.y <= max_height.y && point.y >= min_height.y)) 
+  {
+    return true; 
+  }
+  else 
+  {
+    return false;
+  }
+}

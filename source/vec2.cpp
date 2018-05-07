@@ -85,7 +85,7 @@ Vec2 operator / (Vec2 const& v, float s)
  } 
 
 
-Vec2 operator * (float s, Vec2 const& v) //soll ich hierfuer auch Tests schreiben?
+Vec2 operator * (float s, Vec2 const& v)
 {
   return v*s; //hier kann ich die Methode von oben aufrufen, aber v kommt zuerst weil es oben zuerst war
 }

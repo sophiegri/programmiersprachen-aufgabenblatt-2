@@ -1,7 +1,7 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
 
-// Die include guards im Header einer .hpp Datei (Klassen/Methodendefinition) sollen Mehrfacheinbindungen verhindert werden.
+// Die include guards im Header einer .hpp Datei (Klassen/Methodendefinition) sollen Mehrfacheinbindungen verhindern.
 // ifdndef (Präprozessor-Makro) verhindert diese Mehrfacheinbindung, indem durch das erste Einbinden der Header-Datei 
 // die nachfolgenden Definitionen des Headers übersprungen werden. 
 

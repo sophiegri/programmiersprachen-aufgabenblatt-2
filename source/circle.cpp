@@ -59,5 +59,18 @@ void Circle::draw (Window const& w, Color const& color) const
     float y1{center.y + radius * std::cos(w.get_time()+i)};
     w.draw_point(x1, y1, color.r, color.g, color.b);
 }
-
 }
+//Aufgabe 2.13
+
+bool Circle::is_inside (Vec2 const& point) const
+{
+  if (pow ((center.x - point.x) , 2) + pow ((center.y-point.y) , 2) <= pow (radius ,2))
+  {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+

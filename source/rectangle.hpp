@@ -25,8 +25,9 @@ class Rectangle
 //Aufgabe 2.10
 
     void draw (Window const& w) const;
-
     void draw (Window const& w, Color const& color) const; 
+
+    bool is_inside (Vec2 const& point) const;
 
 };
 

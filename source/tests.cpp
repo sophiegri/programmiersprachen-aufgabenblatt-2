@@ -388,9 +388,26 @@ TEST_CASE ("Circumference_Circle", "[circum_cir")
   REQUIRE (circle2.get_circumference () == Approx (62.83f).epsilon(0.01));
 }
 
+TEST_CASE ("Point-Inside-Circle", "[isinside-cir]")
+{
+  Vec2 point1 {150.0f, 200.0f};
+  Vec2 point2 {50.0f, 50.0f};
+  Circle circle1 {370.0f, {400.0f, 400.0f}, {0.0f,0.0f,0.0f}};
+  REQUIRE (circle1.is_inside(point1)==true);
+  REQUIRE (circle1.is_inside(point2)==false);
+}
+
+TEST_CASE ("Point-Inside-Rectangle", "[isinside-rec]")
+{
+  Vec2 point1 {50.0f, 80.0f};
+  Vec2 point2 {780.0f, 6.0f};
+  Rectangle rectangle1 {Vec2 (780.0f, 780.0f), Vec2(15.0f,15.0f), Color(0.5f, 0.4f, 1.0f)};
+  REQUIRE (rectangle1.is_inside(point1)==true); 
+  REQUIRE (rectangle1.is_inside(point2)==false);
+}
+
 
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
 }
-
