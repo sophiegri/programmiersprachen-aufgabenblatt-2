@@ -22,7 +22,7 @@ TEST_CASE ("User_Konstruktor_Vec")
   Vec2 vector1 {1.0f,2.0f};
   REQUIRE (vector1.x == 1.0f);
   REQUIRE (vector1.y == 2.0f);
-}
+} //lieber so testen 
 
 TEST_CASE ("Konstruktoren" "Vector" ,"[vec]")
 {

@@ -9,13 +9,12 @@
 
 int main(int argc, char* argv[])
 { 
-  //wie geht das? 
-  //std::vector <Circle> 
+
   Circle circle_1 {370.0f, Vec2(400.0f,400.0f), Color (0.0f,0.6f,0.0f)};
   Circle circle_2 {250.0f, Vec2(480.0f,420.0f), Color(0.2f,0.3f,0.4f)};
   Circle circle_3 {120.0f, Vec2(300.0f,180.0f), Color(0.2f,0.8f,1.0f)};
   
-  //std::vector <Rectangle> 
+  
   Rectangle rectangle_1 {Vec2 (215.0f, 450.0f), Vec2(120.0f, 550.0f), Color(0.2f, 0.7f, 1.0f)};
   Rectangle rectangle_2 {Vec2 (780.0f, 15.0f), Vec2(15.0f,780.0f), Color(0.5f, 0.4f, 1.0f)};
   Rectangle rectangle_3 {}; //Jetzt wird durch color const die Farbe auf weiß gesetzt 
@@ -58,21 +57,17 @@ int main(int argc, char* argv[])
     win.draw_point(x2, y2, 0.0f, 1.0f, 0.0f);
     win.draw_point(x3, y3, 0.0f, 0.0f, 1.0f);
 
+
     // mouse_position gibt ein double pair -> std::get<0> um den ersten wert zu bekommen
-    if (circle_1.is_inside({(float) std::get<0> (win.mouse_position() ),(float) std::get<1> (win.mouse_position() )}) 
-      /* || circle_2.is_inside({(float) std::get<0> (win.mouse_position() ),(float) std::get<1> (win.mouse_position() )})
-      || circle_3.is_inside( {(float) std::get<0> (win.mouse_position() ), (float) std::get<1> (win.mouse_position() )}) */ )
+    if (circle_1.is_inside({(float) std::get<0> (win.mouse_position() ),(float) std::get<1> (win.mouse_position() )}) )
     {
       circle_1.draw (win, {0.0f, 0.0f, 1.0f});
-      /* circle_2.draw (win, {0.0f, 0.0f, 1.0f});
-      circle_3.draw (win, {0.0f, 0.0f, 1.0f}); */
     } 
     else 
     {
       circle_1.draw (win);
-      /* circle_2.draw (win);
-      circle_3.draw (win); */
     }
+
 
      if (circle_2.is_inside( {(float) std::get<0> (win.mouse_position() ), (float) std::get<1> (win.mouse_position() )} ))
     {
@@ -83,6 +78,8 @@ int main(int argc, char* argv[])
       circle_2.draw (win);
     }
 
+
+
      if (circle_3.is_inside( {(float) std::get<0> (win.mouse_position() ), (float) std::get<1> (win.mouse_position() )} ))
     {
       circle_3.draw (win, {0.0f, 0.0f, 1.0f});
@@ -91,17 +88,6 @@ int main(int argc, char* argv[])
     {
       circle_3.draw (win);
     } 
-
-
-    if (rectangle_2.is_inside ({(float) std::get<0> (win.mouse_position() ), (float) std::get<1> (win.mouse_position() )}))
-    {
-      rectangle_2.draw (win, {0.0f, 0.0f, 1.0f});
-    }
-    else 
-    {
-      rectangle_2.draw (win);
-    }
-   //warum funktioniert das nicht? 
   
 
 
